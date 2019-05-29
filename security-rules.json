@@ -1,0 +1,15 @@
+// These are your firebase security rules - put them in the "Security & Rules" tab of your database
+// write1: won't let people delete an existing "room"
+//write2: only the store owner can edit the data
+
+{
+  "rules": {
+    ".write": "!data.exists()",
+    ".read": true,
+    "$room": {
+      ".write":
+        "auth != null && (!data.exists() || data.child('owner').val() === auth.uid)",
+      ".read": true
+    }
+  }
+}
