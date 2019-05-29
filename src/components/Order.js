@@ -57,31 +57,26 @@ class Order extends React.Component {
           </li>
         </CSSTransition>
       )
-      // loads of spans for CSS animations
     }
   }
 
   render() {
-    // tallu up total of order
-    const orderIds = Object.keys(this.props.order);   // keys from order state
+    // tally up total of order
+    const orderIds = Object.keys(this.props.order);
 
-    const total = orderIds.reduce((prevTotal, key) => { // reduce loops and tallies
-      const fish = this.props.fishes[key];           // grab the fish you're looping over
-      const count = this.props.order[key];          // how many fish are being bought
+    const total = orderIds.reduce((prevTotal, key) => {
+      const fish = this.props.fishes[key];
+      const count = this.props.order[key];
       const isAvailable = fish && fish.status === 'available'
-       // boolean, is there a fish and is fish available? ie, not "sold out"
       if(isAvailable) {
-        // console.log('count', count);
         return prevTotal + (count * fish.price)
       }
-      //else
       return prevTotal;
-    }, 0);                       // 0 is starting value (second arg) for reduce()
+    }, 0);
 
     return (
     <div className="order-wrap">
       <h2>Order</h2>
-      {/* loop over each of the orderIDs to display each fish & how many */}
       <TransitionGroup
         component="ul"
         className="order">

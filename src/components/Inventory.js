@@ -4,7 +4,7 @@ import firebase from "firebase";
 import AddFishForm from "./AddFishForm";
 import EditFishForm from "./EditFishForm";
 import Login from "./Login";
-import base, { firebaseApp } from "../base";    // import named and default
+import base, { firebaseApp } from "../base";
 
 class Inventory extends React.Component {
 

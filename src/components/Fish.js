@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { formatPrice } from '../helpers';
 
-// format price call happens from helpers.
-
-
 class Fish extends React.Component {
 
-  // static because all fish elemts will have the same ones, so proptypes lives on the fish instance.
   static propTypes = {
     details:PropTypes.shape({
       image: PropTypes.string,
@@ -21,13 +17,11 @@ class Fish extends React.Component {
 
   handleClick = () => {
     this.props.addToOrder(this.props.index)
-    // pass in index as 'key' arg
-    // this function could be in-line in component render.
   }
 
   render() {
     const { image, name, price, desc, status } = this.props.details
-    const isAvailable = status === 'available';      // boolean
+    const isAvailable = status === 'available';      
 
     return (
     <li className="menu-fish">

@@ -15,19 +15,15 @@ class EditFishForm extends React.Component {
     updateFish: PropTypes.func
   }
 
-
   // alternative to refs way
   handleChange = (event) => {
     console.log("event", event.currentTarget.value);
     // 1. take copy of current fish
     const updatedFish = {
-      ...this.props.fish,      // grabs ALL fish props: name, price, desc, etc
+      ...this.props.fish,
       //COMPUTED PROPERTY NAMES: value being updated is also dynamic.
-      // it figures out what got updated instead of being explicitly told.
-      //just overwrite the one thing that changed, using name prop on elements.
       [event.currentTarget.name]: event.currentTarget.value   //
     }
-    // call updated fish method passed from App
     this.props.updateFish(this.props.index, updatedFish) //index acts as a key
   }
 

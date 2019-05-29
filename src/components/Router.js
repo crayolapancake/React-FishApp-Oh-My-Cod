@@ -12,7 +12,7 @@ const Router = () => (
       <Route exact path="/" component={StorePicker}/>
       {/* storeId catch all for any store url */}
       <Route exact path="/store/:storeId" component={App}/>
-      {/* NotFound routes to 404 basically */}
+      {/* NotFound routes */}
       <Route component={NotFound}/>
     </Switch>
   </BrowserRouter>

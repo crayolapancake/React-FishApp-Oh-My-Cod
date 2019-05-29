@@ -14,7 +14,6 @@ export function rando(arr) {
 }
 
 
-// takes in text and swaps out for a slug??? Formats text
 export function slugify(text) {
   return text
     .toString()
